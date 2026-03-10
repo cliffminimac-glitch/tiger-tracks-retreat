@@ -6,28 +6,41 @@
 <title>🐯 Tiger Tracks Miami 2026</title>
 <style>
   :root {
-    --coral: #FF6B6B;
-    --turquoise: #00CFD5;
+    /* Tiger Tracks Brand Colors */
     --teal: #229FA1;
-    --navy: #0d1f35;
-    --gold: #F5A623;
-    --hot-pink: #FF006E;
-    --mint: #06D6A0;
-    --sunset: #FF7F50;
-    --purple: #845EC2;
+    --teal-mid: #1F807E;
+    --teal-dark: #1A7477;
+    --ink: #0A1119;
+    --charcoal: #1B2126;
+    --soft-bone: #F4F1EB;
+    --warm-gray: #9E9E9E;
+    /* Aliases for compatibility */
+    --turquoise: #229FA1;
+    --navy: #0A1119;
+    --gold: #C8963E;  /* warm amber accent for Miami warmth */
+    --coral: #E07A5F; /* muted coral for Miami flare */
+    --hot-pink: #C65D7B;
+    --mint: #2DB5A0;  /* teal-adjacent mint */
+    --sunset: #D4845A;
+    --purple: #5C6BC0;
     --white: #ffffff;
-    --off-white: #f8fafc;
-    --gray-light: #e8ecf0;
-    --text: #1a2535;
-    --text-light: #4a5a6d;
+    --off-white: #F4F1EB; /* Soft Bone as page bg */
+    --gray-light: #E2DDD5;
+    --text: #0A1119; /* Ink for body text */
+    --text-light: #5A6375;
+  }
+
+
+  h1, h2, h3, .logo-text .event, .db-title, .ev-name, .sh h2 {
+    font-family: Georgia, 'Times New Roman', serif;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
   body {
-    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--off-white);
+    font-family: Calibri, 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--soft-bone);
     color: var(--text);
     min-height: 100vh;
     overflow-x: hidden;
@@ -56,7 +69,7 @@
 
   /* ===== HEADER ===== */
   .site-header {
-    background: var(--navy);
+    background: var(--charcoal);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -68,8 +81,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 12px 24px;
-    background: linear-gradient(90deg, var(--navy) 0%, #0f2d4a 100%);
-    border-bottom: 2px solid var(--turquoise);
+    background: linear-gradient(90deg, var(--ink) 0%, var(--charcoal) 100%);
+    border-bottom: 2px solid var(--teal);
   }
 
   .logo-area {
@@ -147,7 +160,7 @@
 
   /* ===== MEGA HERO ===== */
   .mega-hero {
-    background: linear-gradient(-45deg, #0d1f35, #0a3d5c, #0d4f6c, #0a2e50, #1a1a4e);
+    background: linear-gradient(-45deg, #0A1119, #1B2126, #1A7477, #0A1119, #1F807E);
     background-size: 400% 400%;
     animation: gradientShift 8s ease infinite;
     border-radius: 20px;
@@ -523,7 +536,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: var(--navy);
+    background: var(--charcoal);
     color: white;
     padding: 8px 16px;
     border-radius: 10px;
@@ -588,7 +601,7 @@
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    background: var(--off-white);
+    background: var(--soft-bone);
     border-radius: 10px;
     padding: 12px 16px;
     margin-bottom: 8px;
@@ -765,7 +778,7 @@
   .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-top: 14px; }
 
   .team-slot {
-    background: var(--off-white);
+    background: var(--soft-bone);
     border-radius: 14px;
     padding: 14px;
     border: 2px solid var(--gray-light);
@@ -809,7 +822,7 @@
   .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
 
   .info-block {
-    background: var(--off-white);
+    background: var(--soft-bone);
     border-radius: 12px;
     padding: 16px;
     border-left: 4px solid var(--turquoise);
@@ -829,7 +842,7 @@
     text-align: center;
     cursor: pointer;
     transition: all 0.2s;
-    background: var(--off-white);
+    background: var(--soft-bone);
   }
 
   .photo-drop:hover { border-color: var(--turquoise); background: rgba(0,207,213,0.04); }
