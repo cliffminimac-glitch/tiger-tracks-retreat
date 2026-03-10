@@ -1,0 +1,2313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiger Tracks 2026 Spring Retreat</title>
+<style>
+  :root {
+    --teal: #229FA1;
+    --teal-dark: #1a8082;
+    --navy: #0d1f35;
+    --navy-mid: #162a45;
+    --gold: #F5A623;
+    --gold-light: #fdb944;
+    --white: #ffffff;
+    --off-white: #f8f9fb;
+    --gray-light: #e8ecf0;
+    --gray: #8a9bb0;
+    --text: #1a2535;
+    --text-light: #4a5a6d;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: white;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--teal);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  .logo-text { line-height: 1.1; }
+  .logo-text .company { font-size: 11px; color: rgba(255,255,255,0.55); font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; }
+  .logo-text .event { font-size: 15px; font-weight: 700; color: white; }
+
+  .header-badge {
+    background: rgba(245, 166, 35, 0.18);
+    border: 1px solid rgba(245, 166, 35, 0.4);
+    color: var(--gold-light);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== NAV TABS ===== */
+  .nav-tabs {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 0 16px;
+    gap: 2px;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+
+  .nav-tab {
+    padding: 12px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    user-select: none;
+    letter-spacing: 0.2px;
+  }
+
+  .nav-tab:hover { color: rgba(255,255,255,0.85); border-bottom-color: rgba(255,255,255,0.2); }
+  .nav-tab.active { color: var(--teal); border-bottom-color: var(--teal); }
+  .nav-tab .tab-icon { font-size: 15px; }
+
+  /* ===== CONTENT ===== */
+  .tab-content { display: none; animation: fadeIn 0.2s ease; }
+  .tab-content.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+  .page-container { max-width: 1000px; margin: 0 auto; padding: 32px 20px; }
+
+  /* ===== HERO CARD ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3558 100%);
+    border-radius: 16px;
+    padding: 40px;
+    color: white;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(34,159,161,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 150px; height: 150px;
+    background: radial-gradient(circle, rgba(245,166,35,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(34,159,161,0.2);
+    border: 1px solid rgba(34,159,161,0.4);
+    color: #4fc4c6;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 { font-size: 28px; font-weight: 800; margin-bottom: 6px; line-height: 1.2; }
+  .hero .tagline { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 28px; font-style: italic; }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    position: relative; z-index: 1;
+  }
+
+  .hero-stat {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 12px 16px;
+  }
+
+  .hero-stat .label { font-size: 10px; color: rgba(255,255,255,0.45); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .hero-stat .value { font-size: 14px; font-weight: 700; color: white; line-height: 1.3; }
+  .hero-stat .value.teal { color: #4fc4c6; }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border: 1px solid var(--gray-light);
+  }
+
+  .card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-title .icon { font-size: 18px; }
+
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+
+  .info-block {
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 14px 16px;
+    border-left: 3px solid var(--teal);
+  }
+
+  .info-block .label { font-size: 10px; color: var(--gray); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .info-block .value { font-size: 14px; font-weight: 600; color: var(--text); }
+  .info-block .sub { font-size: 12px; color: var(--text-light); margin-top: 2px; }
+
+  /* ===== AGENDA ===== */
+  .day-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 18px 24px;
+    margin-bottom: 12px;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .day-header:first-child { margin-top: 0; }
+
+  .day-badge {
+    background: var(--teal);
+    color: white;
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .day-title { font-size: 17px; font-weight: 700; }
+  .day-question { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 2px; font-style: italic; }
+
+  .timeline { position: relative; }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 0;
+    margin-bottom: 2px;
+  }
+
+  .time-col {
+    padding: 12px 14px 12px 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--teal-dark);
+    text-align: right;
+    white-space: nowrap;
+    border-right: 2px solid var(--gray-light);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-top: 16px;
+  }
+
+  .event-col {
+    padding: 10px 0 10px 16px;
+    border-left: none;
+  }
+
+  .event-block {
+    border-radius: 8px;
+    padding: 10px 14px;
+    border-left: 3px solid var(--teal);
+    background: var(--off-white);
+    transition: all 0.15s;
+  }
+
+  .event-block.break { border-left-color: var(--gray); background: white; }
+  .event-block.social { border-left-color: var(--gold); background: #fffbf0; }
+  .event-block.depart { border-left-color: #e84c3d; background: #fff5f4; }
+  .event-block.downtime { border-left-color: #7c5cbf; background: #f8f5ff; }
+  .event-block.ceremony { border-left-color: var(--gold); background: linear-gradient(135deg, #fffbf0, #fff5d6); }
+
+  .event-name { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .event-detail { font-size: 12px; color: var(--text-light); line-height: 1.5; }
+  .event-lead { font-size: 11px; font-weight: 600; color: var(--teal); margin-top: 3px; }
+
+  .event-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-top: 4px;
+    letter-spacing: 0.3px;
+  }
+
+  .tag-ost { background: rgba(34,159,161,0.12); color: var(--teal-dark); }
+  .tag-plenary { background: rgba(13,31,53,0.1); color: var(--navy); }
+  .tag-social { background: rgba(245,166,35,0.15); color: #b8720a; }
+  .tag-key { background: rgba(232,76,61,0.12); color: #c0392b; }
+
+  /* ===== MAP ===== */
+  .map-locations { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px; }
+
+  .map-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--gray-light);
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  .map-card-header {
+    padding: 16px 20px 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .map-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .map-icon.hotel { background: rgba(34,159,161,0.12); }
+  .map-icon.work { background: rgba(13,31,53,0.1); }
+  .map-icon.food { background: rgba(245,166,35,0.15); }
+  .map-icon.boat { background: rgba(34,87,221,0.1); }
+
+  .map-card-body { padding: 0 20px 16px; }
+  .map-location-name { font-size: 15px; font-weight: 700; color: var(--text); }
+  .map-location-tag { font-size: 11px; color: var(--teal); font-weight: 600; letter-spacing: 0.5px; }
+  .map-address { font-size: 12px; color: var(--text-light); margin: 6px 0 10px; line-height: 1.5; }
+
+  .map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--teal);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .map-btn:hover { background: var(--teal-dark); }
+  .map-btn.outline { background: transparent; border: 1.5px solid var(--teal); color: var(--teal); }
+  .map-btn.outline:hover { background: rgba(34,159,161,0.08); }
+
+  .map-embed {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 12px;
+    margin-top: 16px;
+  }
+
+  /* ===== PLAYBOOK ===== */
+  .principle-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
+
+  .principle-card {
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid var(--gray-light);
+    text-align: center;
+  }
+
+  .principle-num {
+    width: 32px; height: 32px;
+    background: var(--teal);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 800;
+    margin: 0 auto 10px;
+  }
+
+  .principle-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .principle-desc { font-size: 12px; color: var(--text-light); line-height: 1.5; }
+
+  .law-card {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3558 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+
+  .law-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+  .law-card .law-text { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.7; }
+
+  .obj-list { display: grid; gap: 12px; }
+  .obj-item { display: flex; gap: 14px; align-items: flex-start; }
+  .obj-num {
+    width: 28px; height: 28px; min-width: 28px;
+    background: var(--gold);
+    color: var(--navy);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800;
+  }
+
+  .obj-content h4 { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+  .obj-content p { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+
+  .pain-list { display: grid; gap: 8px; }
+  .pain-item {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: #fff5f4;
+    border-left: 3px solid #e84c3d;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+  }
+
+  .pain-item .pain-icon { font-size: 16px; margin-top: 1px; }
+  .pain-item h5 { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+  .pain-item p { font-size: 12px; color: var(--text-light); }
+
+  /* ===== PREP ===== */
+  .checklist { display: grid; gap: 8px; }
+
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--off-white);
+    border-radius: 8px;
+    padding: 10px 14px;
+    border: 1px solid var(--gray-light);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .check-item:hover { border-color: var(--teal); background: rgba(34,159,161,0.04); }
+
+  .check-box {
+    width: 20px; height: 20px; min-width: 20px;
+    border: 2px solid var(--gray);
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+    margin-top: 1px;
+  }
+
+  .check-item.checked .check-box { background: var(--teal); border-color: var(--teal); }
+  .check-item.checked .check-box::after { content: '✓'; color: white; font-size: 12px; font-weight: 700; }
+  .check-item.checked .check-text { text-decoration: line-through; color: var(--gray); }
+
+  .check-text { font-size: 13px; font-weight: 600; line-height: 1.4; }
+  .check-sub { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+
+  .deadline-badge {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+    background: #fff0e0;
+    color: #b36b00;
+    border: 1px solid #f5c078;
+  }
+
+  .deadline-badge.urgent { background: #ffeaea; color: #c0392b; border-color: #f5c0c0; }
+  .deadline-badge.done { background: #e8f8f0; color: #27ae60; border-color: #a8dfbf; }
+
+  /* ===== SUBMISSION FORM ===== */
+  .form-section { margin-bottom: 24px; }
+  .form-label { display: block; font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 6px; letter-spacing: 0.3px; }
+  .form-sub { font-size: 11px; color: var(--text-light); margin-bottom: 8px; }
+
+  .form-input, .form-textarea, .form-select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--gray-light);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--text);
+    background: white;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(34,159,161,0.1); }
+  .form-textarea { min-height: 100px; resize: vertical; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    font-family: inherit;
+    letter-spacing: 0.2px;
+  }
+
+  .btn-primary { background: var(--teal); color: white; }
+  .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(34,159,161,0.3); }
+  .btn-gold { background: var(--gold); color: var(--navy); }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline { background: transparent; border: 1.5px solid var(--teal); color: var(--teal); }
+
+  .photo-upload {
+    border: 2px dashed var(--gray-light);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--off-white);
+  }
+
+  .photo-upload:hover { border-color: var(--teal); background: rgba(34,159,161,0.04); }
+  .photo-upload .upload-icon { font-size: 36px; margin-bottom: 12px; }
+  .photo-upload h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .photo-upload p { font-size: 12px; color: var(--text-light); }
+
+  .social-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .social-btn.slack { background: #4A154B; color: white; }
+  .social-btn.google { background: #2da44e; color: white; }
+
+  /* ===== RECOGNITION ===== */
+  .ceremony-hero {
+    background: linear-gradient(135deg, #1a1a2e 0%, #1a3558 100%);
+    border-radius: 16px;
+    padding: 36px;
+    color: white;
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ceremony-hero::before {
+    content: '🏅';
+    font-size: 120px;
+    position: absolute;
+    top: -20px; right: -20px;
+    opacity: 0.08;
+  }
+
+  .ceremony-hero h2 { font-size: 24px; font-weight: 800; margin-bottom: 8px; }
+  .ceremony-hero .ceremony-sub { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+  .ceremony-hero .coin-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(245,166,35,0.2);
+    border: 1px solid rgba(245,166,35,0.4);
+    color: var(--gold-light);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .ceremony-steps { display: grid; gap: 10px; }
+  .ceremony-step {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid var(--gray-light);
+  }
+
+  .step-num {
+    width: 32px; height: 32px; min-width: 32px;
+    background: linear-gradient(135deg, var(--gold) 0%, #e8940a 100%);
+    color: var(--navy);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 800;
+  }
+
+  .step-content h4 { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+  .step-content p { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin-top: 12px; }
+
+  .team-slot {
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid var(--gray-light);
+    text-align: center;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .team-slot:hover { border-color: var(--gold); background: #fffbf0; }
+  .team-slot.honored { border-color: var(--gold); background: linear-gradient(135deg, #fffbf0, #fff5d6); }
+
+  .team-slot .avatar {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    font-weight: 800; color: white;
+    margin: 0 auto 8px;
+  }
+
+  .team-slot .member-name { font-size: 12px; font-weight: 700; color: var(--text); }
+  .team-slot .coin-status { font-size: 11px; margin-top: 4px; }
+  .team-slot.honored .coin-status::after { content: ' 🪙'; }
+
+  /* ===== SUCCESS STATE ===== */
+  .success-message {
+    display: none;
+    background: linear-gradient(135deg, #e8f8f0, #d6f5e6);
+    border: 1px solid #a8dfbf;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  .success-message.show { display: block; animation: fadeIn 0.3s ease; }
+  .success-message h4 { color: #27ae60; font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .success-message p { font-size: 13px; color: #2e7d52; }
+
+  /* ===== CONTACT STRIP ===== */
+  .contact-strip {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .contact-strip .contact-info { color: white; }
+  .contact-strip .contact-name { font-size: 14px; font-weight: 700; }
+  .contact-strip .contact-role { font-size: 11px; color: rgba(255,255,255,0.5); }
+  .contact-strip .contact-links { display: flex; gap: 8px; }
+
+  .contact-link {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .contact-link:hover { background: rgba(255,255,255,0.2); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 640px) {
+    .header-top { padding: 12px 16px; }
+    .page-container { padding: 20px 14px; }
+    .hero { padding: 24px; }
+    .hero h1 { font-size: 22px; }
+    .timeline-item { grid-template-columns: 90px 1fr; }
+    .day-header { flex-wrap: wrap; }
+  }
+
+  /* ===== SECTION HEADERS ===== */
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 16px; margin-top: 28px;
+  }
+  .section-header:first-child { margin-top: 0; }
+  .section-header h2 { font-size: 17px; font-weight: 800; color: var(--text); }
+  .section-header .sh-icon { font-size: 20px; }
+  .section-divider { height: 2px; flex: 1; background: var(--gray-light); border-radius: 1px; }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(34,159,161,0.06) 0%, rgba(34,159,161,0.02) 100%);
+    border: 1px solid rgba(34,159,161,0.2);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+  }
+
+  .highlight-box p { font-size: 13px; color: var(--text); line-height: 1.7; }
+  .highlight-box strong { color: var(--teal-dark); }
+
+  /* ===== ALERT ===== */
+  .alert {
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13px;
+  }
+
+  .alert.red { background: #fff5f4; border: 1px solid #f5c0c0; color: #c0392b; }
+  .alert.gold { background: #fffbf0; border: 1px solid #f5c078; color: #8a5a00; }
+  .alert.teal { background: rgba(34,159,161,0.06); border: 1px solid rgba(34,159,161,0.2); color: var(--teal-dark); }
+
+  .alert .alert-icon { font-size: 15px; margin-top: 1px; }
+
+  /* dress code table */
+  table { width: 100%; border-collapse: collapse; }
+  th { background: var(--off-white); padding: 10px 14px; font-size: 12px; font-weight: 700; color: var(--text); text-align: left; border-bottom: 2px solid var(--gray-light); }
+  td { padding: 10px 14px; font-size: 13px; color: var(--text); border-bottom: 1px solid var(--gray-light); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-top">
+    <div class="header-logo">
+      <div class="logo-icon">🐯</div>
+      <div class="logo-text">
+        <div class="company">Tiger Tracks</div>
+        <div class="event">2026 Spring Retreat</div>
+      </div>
+    </div>
+    <div class="header-badge">March 31 – April 4 · Miami</div>
+  </div>
+  <nav class="nav-tabs">
+    <div class="nav-tab active" onclick="showTab('home')"><span class="tab-icon">🏠</span> Overview</div>
+    <div class="nav-tab" onclick="showTab('agenda')"><span class="tab-icon">📅</span> Agenda</div>
+    <div class="nav-tab" onclick="showTab('map')"><span class="tab-icon">📍</span> Map</div>
+    <div class="nav-tab" onclick="showTab('playbook')"><span class="tab-icon">📖</span> Playbook</div>
+    <div class="nav-tab" onclick="showTab('prep')"><span class="tab-icon">✅</span> Prep & Pack</div>
+    <div class="nav-tab" onclick="showTab('submit')"><span class="tab-icon">💬</span> Submit</div>
+    <div class="nav-tab" onclick="showTab('recognition')"><span class="tab-icon">🏅</span> Recognition</div>
+  </nav>
+</header>
+
+<!-- ===================== HOME TAB ===================== -->
+<div id="home" class="tab-content active">
+  <div class="page-container">
+
+    <div class="hero">
+      <div class="hero-tag">🌴 Miami · Spring 2026</div>
+      <h1>Building a Stronger Team<br>for a Bigger Tomorrow</h1>
+      <p class="tagline">"Offsites are where you lay groundwork, build shared vocabulary, and decide who you want to be as a team."</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="label">Dates</div><div class="value">Mar 31 – Apr 4, 2026</div></div>
+        <div class="hero-stat"><div class="label">Working Days</div><div class="value teal">Tue – Thu · 3 Days</div></div>
+        <div class="hero-stat"><div class="label">Hotel</div><div class="value">SLS LUX Brickell</div></div>
+        <div class="hero-stat"><div class="label">Coworking</div><div class="value">Brickell Pipelines</div></div>
+        <div class="hero-stat"><div class="label">Team Size</div><div class="value teal">25 People</div></div>
+        <div class="hero-stat"><div class="label">Contact</div><div class="value">Elizabeth Ogilvie</div></div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">🎯</span><h2>What This Retreat Is About</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-grid">
+        <div class="info-block">
+          <div class="label">Objective 1</div>
+          <div class="value">Build Real Operating Trust</div>
+          <div class="sub">The kind where you know how teammates think and make decisions — not icebreakers.</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Objective 2</div>
+          <div class="value">Ruthless Clarity on Priorities</div>
+          <div class="sub">Next 6 months. What we're doing, what we're not, and why.</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Objective 3</div>
+          <div class="value">Make Ownership Explicit</div>
+          <div class="sub">Who owns what. Who decides what. When to escalate vs. move.</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Objective 4</div>
+          <div class="value">Agree on How We Work</div>
+          <div class="sub">Feedback norms, accountability, what "good" looks like — for this specific team.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">🏨</span><h2>The Basics</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-grid">
+        <div class="info-block" style="border-left-color: var(--gold)">
+          <div class="label">Hotel</div>
+          <div class="value">SLS LUX Brickell</div>
+          <div class="sub">805 S Miami Ave, Miami, FL 33130<br>Check-in 3:00 PM · Check-out 11:00 AM</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Coworking Space</div>
+          <div class="value">Brickell Pipelines</div>
+          <div class="sub">78 SW 7th St, Miami, FL 33130<br>~6 min walk from hotel</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Working Days</div>
+          <div class="value">Tue – Thu · 9 AM – 4 PM</div>
+          <div class="sub">~6 hours of structured work per day</div>
+        </div>
+        <div class="info-block" style="border-left-color: #e84c3d">
+          <div class="label">Point of Contact</div>
+          <div class="value">Elizabeth Ogilvie</div>
+          <div class="sub">(301) 646-7758 · Text, call, or DM<br>Karen Arguello: (808) 280-1014</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Monday Welcome Dinner</div>
+          <div class="value">Casa Tua Cucina · 7 PM</div>
+          <div class="sub">Brickell City Centre · Low-key, no work talk</div>
+        </div>
+        <div class="info-block" style="border-left-color: #3498db">
+          <div class="label">Boat Night — Tuesday</div>
+          <div class="value">Depart Hotel: 4:30 PM</div>
+          <div class="sub">3218 NW North River Drive, Miami<br>Light jacket recommended</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Wednesday Dinner</div>
+          <div class="value">Casual Dinner in Brickell</div>
+          <div class="sub">Depart hotel lobby at 6:30 PM</div>
+        </div>
+        <div class="info-block" style="border-left-color: var(--gold)">
+          <div class="label">Final Night — Thursday</div>
+          <div class="value">KOMODO · 7:30 PM</div>
+          <div class="sub">Rooftop Happy Hour 5:00 PM first at SLS<br>Smart casual required (no shorts, hats, tanks)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">🗓</span><h2>Week at a Glance</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card" style="padding:0; overflow:hidden;">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:120px">Day</th>
+            <th>Theme</th>
+            <th>Evening</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Mon 3/31</strong><br><span style="font-size:11px;color:var(--gray)">Arrival</span></td>
+            <td>Arrive in Miami, check in, unwind. No work agenda.</td>
+            <td>🍝 Welcome Dinner — Casa Tua Cucina · 7 PM</td>
+          </tr>
+          <tr style="background: rgba(34,159,161,0.03)">
+            <td><strong>Tue 4/1</strong><br><span style="font-size:11px;color:var(--teal)">Day 1</span></td>
+            <td>"Who Are We & How Do We Work Together?"</td>
+            <td>⛵ Boat Night · Depart 4:30 PM</td>
+          </tr>
+          <tr>
+            <td><strong>Wed 4/2</strong><br><span style="font-size:11px;color:var(--teal)">Day 2</span></td>
+            <td>"What Are We Building & What Matters Most?"</td>
+            <td>🍽 Casual Dinner in Brickell · 7 PM</td>
+          </tr>
+          <tr style="background: rgba(34,159,161,0.03)">
+            <td><strong>Thu 4/3</strong><br><span style="font-size:11px;color:var(--teal)">Day 3</span></td>
+            <td>"How Do We Execute Better, Faster & Saner?"</td>
+            <td>🍸 Rooftop Happy Hour + 🥩 KOMODO Dinner</td>
+          </tr>
+          <tr>
+            <td><strong>Fri 4/4</strong><br><span style="font-size:11px;color:var(--gray)">Departure</span></td>
+            <td>Check out by 11 AM. Safe travels home.</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">⚡</span><h2>Daily Rhythm</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card">
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:8px;">
+        <div style="background:rgba(34,159,161,0.08); border-radius:10px; padding:14px; text-align:center;">
+          <div style="font-size:20px;margin-bottom:6px;">🧠</div>
+          <div style="font-size:12px;font-weight:700;">9:00 – 12:00</div>
+          <div style="font-size:11px;color:var(--text-light);margin-top:3px;">High-leverage thinking & decisions</div>
+        </div>
+        <div style="background:rgba(245,166,35,0.1); border-radius:10px; padding:14px; text-align:center;">
+          <div style="font-size:20px;margin-bottom:6px;">🥗</div>
+          <div style="font-size:12px;font-weight:700;">12:00 – 1:00</div>
+          <div style="font-size:11px;color:var(--text-light);margin-top:3px;">Working Lunch</div>
+        </div>
+        <div style="background:rgba(34,159,161,0.08); border-radius:10px; padding:14px; text-align:center;">
+          <div style="font-size:20px;margin-bottom:6px;">⚙️</div>
+          <div style="font-size:12px;font-weight:700;">1:00 – 3:30</div>
+          <div style="font-size:11px;color:var(--text-light);margin-top:3px;">Tactical collaboration & workshops</div>
+        </div>
+        <div style="background:rgba(13,31,53,0.06); border-radius:10px; padding:14px; text-align:center;">
+          <div style="font-size:20px;margin-bottom:6px;">📝</div>
+          <div style="font-size:12px;font-weight:700;">3:00 – 3:30</div>
+          <div style="font-size:11px;color:var(--text-light);margin-top:3px;">Reflection & commitments</div>
+        </div>
+        <div style="background:rgba(124,92,191,0.08); border-radius:10px; padding:14px; text-align:center;">
+          <div style="font-size:20px;margin-bottom:6px;">🌅</div>
+          <div style="font-size:12px;font-weight:700;">3:30 – 4:30</div>
+          <div style="font-size:11px;color:var(--text-light);margin-top:3px;">Personal downtime — mandatory reset</div>
+        </div>
+        <div style="background:rgba(52,152,219,0.08); border-radius:10px; padding:14px; text-align:center;">
+          <div style="font-size:20px;margin-bottom:6px;">🌆</div>
+          <div style="font-size:12px;font-weight:700;">4:30 PM+</div>
+          <div style="font-size:11px;color:var(--text-light);margin-top:3px;">Evening activities & dinners</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-strip">
+      <div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.5);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Planning Team</div>
+        <div style="display:flex;gap:20px;flex-wrap:wrap;">
+          <div class="contact-info"><div class="contact-name">Elizabeth Ogilvie</div><div class="contact-role">(301) 646-7758</div></div>
+          <div class="contact-info"><div class="contact-name">Karen Arguello</div><div class="contact-role">(808) 280-1014</div></div>
+          <div class="contact-info"><div class="contact-name">Emergency</div><div class="contact-role">911 · Hotel Desk</div></div>
+        </div>
+      </div>
+      <div class="contact-links">
+        <a href="tel:3016467758" class="contact-link">📞 Call Eliz</a>
+        <a href="sms:3016467758" class="contact-link">💬 Text</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== AGENDA TAB ===================== -->
+<div id="agenda" class="tab-content">
+  <div class="page-container">
+
+    <!-- MONDAY -->
+    <div class="day-header">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="day-badge">Mon Mar 31</div>
+          <span style="font-size:13px;color:rgba(255,255,255,0.4);">Arrival Day</span>
+        </div>
+        <div class="day-title">Arrival & Welcome</div>
+        <div class="day-question">No work on Monday. Just get here and settle in.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time-col">All Day</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">✈️ Arrivals & Hotel Check-In</div>
+              <div class="event-detail">SLS LUX Brickell — check-in available from 3:00 PM. Travel day per diem: $50 for meals & incidentals. Share flight info with Elizabeth for ride coordination.</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">3:00 – 5:00</div>
+          <div class="event-col">
+            <div class="event-block downtime">
+              <div class="event-name">🌊 Unstructured Arrival Time</div>
+              <div class="event-detail">Pool, lobby, hotel bar, explore the neighborhood. A natural gathering point — no agenda, no awkwardness. Just arrive and decompress.</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">7:00 PM</div>
+          <div class="event-col">
+            <div class="event-block social">
+              <div class="event-name">🍝 Welcome Dinner — Casa Tua Cucina</div>
+              <div class="event-detail">Brickell City Centre. Low-key, no work talk. Reconnect as humans. Shared ride schedules coordinated for similar arrival times.</div>
+              <span class="event-tag tag-social">Social</span>
+              <div class="event-lead">Lead: Cliff / Henry toast to set the tone — keep it short and warm</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TUESDAY -->
+    <div class="day-header">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="day-badge">Tue Apr 1</div>
+          <div class="day-badge" style="background:rgba(255,255,255,0.15);">Day 1 of 3</div>
+        </div>
+        <div class="day-title">Who Are We & How Do We Work Together?</div>
+        <div class="day-question">Core Question: Who are we as a team, and how do we actually operate?</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time-col">8:30 – 9:00</div>
+          <div class="event-col">
+            <div class="event-block break">
+              <div class="event-name">☕ Breakfast & Settle In — Brickell Pipelines</div>
+              <div class="event-detail">Coffee, food, find your seat. Buffer time so the first session doesn't start with stragglers.</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">9:00 – 9:45</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">🎯 Opening & Retreat Framing</div>
+              <div class="event-detail">Why we're here, what success looks like, the shape of the three days. Peter introduces Open Space Technology — principles, Law of Two Feet, expectations. Name the elephant: this team is still forming, and that's normal.</div>
+              <span class="event-tag tag-plenary">Plenary</span>
+              <div class="event-lead">Lead: Cliff + Peter</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">9:45 – 10:00</div>
+          <div class="event-col">
+            <div class="event-block break">
+              <div class="event-name">Break — 15 min</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">10:00 – 10:15</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">🛒 Open Space Marketplace #1</div>
+              <div class="event-detail">Central question: "What do we need to understand about each other and this team to work better together?" Anyone proposes topics. Peter builds the marketplace grid.</div>
+              <span class="event-tag tag-ost">Open Space</span>
+              <div class="event-lead">Facilitator: Peter</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">10:15 – 11:15</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">💬 Open Space Sessions #1</div>
+              <div class="event-detail">2–3 simultaneous conversations. Hosts facilitate their topic. Law of Two Feet in effect — move freely. Each session captures key points on flip chart paper.</div>
+              <span class="event-tag tag-ost">Open Space</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">11:15 – 11:30</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">🌾 Harvest #1</div>
+              <div class="event-detail">Session hosts report back: key insights, what was discussed, anything unresolved. Scribe captures in shared doc.</div>
+              <span class="event-tag tag-plenary">Plenary</span>
+              <div class="event-lead">Facilitator: Peter</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">11:30 – 12:00</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">📊 Business & Customer Evolution Review</div>
+              <div class="event-detail">How leads really flow, why certain constraints exist, where the business is today vs. 12 months ago. A conversation with the team — not a presentation to the team.</div>
+              <span class="event-tag tag-plenary">Plenary</span>
+              <div class="event-lead">Lead: Henry / Cliff</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">12:00 – 1:00</div>
+          <div class="event-col">
+            <div class="event-block social">
+              <div class="event-name">🥗 Working Lunch</div>
+              <div class="event-detail">Brickell Pipelines. Lunch while continuing conversations — use the time to dig deeper on morning themes.</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">1:00 – 2:00</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">💰 Owen Finance Deep Dive</div>
+              <div class="event-detail">How finance, ops, and delivery connect. Demystify the numbers so the team can make better local decisions. Encourage questions — goal is understanding, not just information transfer.</div>
+              <span class="event-tag tag-plenary">Plenary</span>
+              <div class="event-lead">Lead: Owen</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">2:00 – 2:15</div>
+          <div class="event-col">
+            <div class="event-block break"><div class="event-name">Break — 15 min</div></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">2:15 – 2:30</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">🛒 Open Space Marketplace #2</div>
+              <div class="event-detail">Central question: "What norms and agreements does this team need to establish?" Topics: feedback, accountability, meeting culture, handling disagreement, dealing with mistakes.</div>
+              <span class="event-tag tag-ost">Open Space</span>
+              <div class="event-lead">Facilitator: Peter</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">2:30 – 3:15</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">💬 Open Space Sessions #2</div>
+              <div class="event-detail">2–3 simultaneous conversations on team norms and operating agreements. Law of Two Feet applies.</div>
+              <span class="event-tag tag-ost">Open Space</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">3:15 – 3:30</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">🌾 Harvest #2 + Team Norms Wall</div>
+              <div class="event-detail">Report-backs. Begin building visible "Team Norms" wall chart. Stays up all week.</div>
+              <span class="event-tag tag-plenary">Plenary</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">3:30 – 4:00</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">🪞 Day 1 Reflection Ritual</div>
+              <div class="event-detail">Each person shares: one thing that surprised them, one thing they want to carry into tomorrow. Non-negotiable daily close.</div>
+              <span class="event-tag tag-plenary">Plenary</span>
+              <div class="event-lead">Facilitator: Peter</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">4:00 – 4:30</div>
+          <div class="event-col">
+            <div class="event-block downtime">
+              <div class="event-name">🌴 Downtime — 30 Min Chill</div>
+              <div class="event-detail">Return to hotel. Rest, change, freshen up before heading to the boat. You just did 6+ hours of real work. Don't skip this.</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">4:30 PM</div>
+          <div class="event-col">
+            <div class="event-block depart">
+              <div class="event-name">⛵ DEPART HOTEL LOBBY — Boat Night</div>
+              <div class="event-detail">Gather in hotel lobby at 4:30 PM sharp. Boat dock: 3218 NW North River Drive, Miami, FL 33142. Light jacket recommended for after sunset. ~25 min drive.</div>
+              <span class="event-tag tag-social">Social</span>
+              <span class="event-tag tag-key" style="background:#ffeaea;color:#c0392b;">⚠️ Don't be late</span>
+              <div class="event-lead">Lead: Elizabeth / Karen</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEDNESDAY -->
+    <div class="day-header">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="day-badge">Wed Apr 2</div>
+          <div class="day-badge" style="background:rgba(255,255,255,0.15);">Day 2 of 3</div>
+        </div>
+        <div class="day-title">What Are We Building & What Matters Most?</div>
+        <div class="day-question">Core Question: What are our priorities, and what are we deliberately saying no to?</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time-col">8:30 – 9:00</div>
+          <div class="event-col"><div class="event-block break"><div class="event-name">☕ Breakfast & Settle In</div></div></div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">9:00 – 9:15</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">🌤 Morning Check-In</div>
+              <div class="event-detail">Quick pulse check. Anything from Day 1 still on your mind?</div>
+              <span class="event-tag tag-plenary">Plenary</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">9:15 – 11:15</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">🛒 Open Space Block #3</div>
+              <div class="event-detail">Central question: "What should Tiger Tracks prioritize, deprioritize, start, or stop in the next 6 months?" Marketplace + Sessions + Harvest all in one block.</div>
+              <span class="event-tag tag-ost">Open Space</span>
+              <div class="event-lead">Facilitator: Peter</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">11:15 – 11:30</div>
+          <div class="event-col"><div class="event-block break"><div class="event-name">Break — 15 min</div></div></div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">11:30 – 12:00</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">🗺 Ownership Mapping</div>
+              <div class="event-detail">Full group exercise: who owns what. Who supports. Who decides. When to escalate vs. move locally. Visible map posted on the wall for the rest of the week.</div>
+              <span class="event-tag tag-plenary">Plenary</span>
+              <div class="event-lead">Lead: Cliff / Henry</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">12:00 – 1:00</div>
+          <div class="event-col">
+            <div class="event-block social">
+              <div class="event-name">🥗 Working Lunch</div>
+              <div class="event-detail">Use this time to continue ownership conversations or debrief the morning priorities work informally.</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">1:00 – 2:45</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">🛒 Open Space Block #4</div>
+              <div class="event-detail">Central question: "What decisions, processes, or interfaces need to be clarified for us to move faster?" Decision bottlenecks, autonomy zones, handoff points.</div>
+              <span class="event-tag tag-ost">Open Space</span>
+              <div class="event-lead">Facilitator: Peter</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">2:45 – 3:00</div>
+          <div class="event-col"><div class="event-block break"><div class="event-name">Break — 15 min</div></div></div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">3:00 – 3:30</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">🎯 Strategy / Pitching Workshop</div>
+              <div class="event-detail">Sharpening how we talk about and pitch Tiger Tracks. Practical, applicable session.</div>
+              <span class="event-tag tag-plenary">Plenary</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">3:30 – 4:00</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">🪞 Day 2 Reflection & Close</div>
+              <div class="event-detail">One surprise, one thing to carry into tomorrow. This is the heaviest work day — acknowledge what you accomplished.</div>
+              <span class="event-tag tag-plenary">Plenary</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">4:00 – 6:30</div>
+          <div class="event-col">
+            <div class="event-block downtime">
+              <div class="event-name">🌅 Extended Downtime — Take the Full Break</div>
+              <div class="event-detail">This is the heaviest work day. Return to hotel. Pool, shower, call home, nap. Don't schedule side meetings into this time. You earned it.</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">6:30 PM</div>
+          <div class="event-col">
+            <div class="event-block social">
+              <div class="event-name">🍽 Depart for Casual Dinner in Brickell</div>
+              <div class="event-detail">Gather at hotel lobby. Restaurant TBD. Keep it casual — option to change at hotel before heading out.</div>
+              <span class="event-tag tag-social">Social</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THURSDAY -->
+    <div class="day-header">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="day-badge">Thu Apr 3</div>
+          <div class="day-badge" style="background:rgba(255,255,255,0.15);">Day 3 of 3</div>
+          <div class="day-badge" style="background:rgba(245,166,35,0.4);">Recognition Day 🏅</div>
+        </div>
+        <div class="day-title">How Do We Execute Better, Faster & Saner?</div>
+        <div class="day-question">Core Question: What are we committing to, and how do we hold ourselves to it?</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time-col">8:30 – 9:00</div>
+          <div class="event-col"><div class="event-block break"><div class="event-name">☕ Breakfast & Settle In</div></div></div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">9:00 – 9:15</div>
+          <div class="event-col">
+            <div class="event-block"><div class="event-name">🌤 Morning Check-In</div><div class="event-detail">Quick pulse. What's your energy coming into the final day?</div><span class="event-tag tag-plenary">Plenary</span></div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">9:15 – 10:15</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">📊 Pressure-Test Priorities & 6-Month Scoreboard</div>
+              <div class="event-detail">Full group review of what emerged from Days 1-2. Which priorities made it? Which didn't? Who owns the scoreboard? What are the checkpoints?</div>
+              <span class="event-tag tag-plenary">Plenary</span>
+              <div class="event-lead">Lead: Cliff / Henry</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">10:15 – 10:30</div>
+          <div class="event-col"><div class="event-block break"><div class="event-name">Break — 15 min</div></div></div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">10:30 – 11:45</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">🛒 Open Space Block #5 — Final Unfinished Business</div>
+              <div class="event-detail">Central question: "What's still unresolved, unsaid, or unfinished from this week?" Last chance to raise what hasn't been raised. Use the Law of Two Feet freely.</div>
+              <span class="event-tag tag-ost">Open Space</span>
+              <div class="event-lead">Facilitator: Peter</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">11:45 – 12:00</div>
+          <div class="event-col"><div class="event-block break"><div class="event-name">Transition</div></div></div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">12:00 – 1:00</div>
+          <div class="event-col">
+            <div class="event-block social">
+              <div class="event-name">🥗 Working Lunch</div>
+              <div class="event-detail">Wrap up loose threads. Informal conversations while eating.</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">1:00 – 1:45</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">📋 Accountability & Follow-Through Design</div>
+              <div class="event-detail">How do we make this stick? 30/60/90-day check-in structure. Ownership tracker. Define success metrics together. Schedule the first check-in before leaving the room.</div>
+              <span class="event-tag tag-plenary">Plenary</span>
+              <div class="event-lead">Lead: Cliff / Peter</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">1:45 – 2:15</div>
+          <div class="event-col">
+            <div class="event-block">
+              <div class="event-name">✍️ Closing Session — Personal Commitments</div>
+              <div class="event-detail">Each person states their one commitment out loud — something specific and actionable they're taking away from this week. Write your "note to future self" (will be emailed back to you 30 days from now).</div>
+              <span class="event-tag tag-plenary">Plenary</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">2:15 – 3:00</div>
+          <div class="event-col">
+            <div class="event-block ceremony">
+              <div class="event-name">🏅 Summit Recognition Ceremony</div>
+              <div class="event-detail">Tiger Tracks new tradition — honoring and appreciating every team member. Each person is recognized for their unique qualities and contributions. Commemorative coins presented to all 25 attendees. See the Recognition tab for full details.</div>
+              <span class="event-tag tag-social">Ceremony</span>
+              <span class="event-tag tag-key" style="background:rgba(245,166,35,0.15);color:#8a5a00;">New Tradition ✨</span>
+              <div class="event-lead">Lead: Elizabeth / Henry / Cliff</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">3:00 – 5:00</div>
+          <div class="event-col">
+            <div class="event-block downtime">
+              <div class="event-name">🌅 Extended Downtime — Pack, Rest, Get Ready</div>
+              <div class="event-detail">Final evening is KOMODO — smart casual dress required. Use this time to pack, shower, and arrive at the rooftop as a human being, not a burned-out attendee.</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">5:00 PM</div>
+          <div class="event-col">
+            <div class="event-block social">
+              <div class="event-name">🍸 Rooftop Happy Hour — SLS LUX Rooftop Bar & Pool</div>
+              <div class="event-detail">Right at the hotel. Celebrate what you built this week. Dress smart casual.</div>
+              <span class="event-tag tag-social">Social</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">7:30 PM</div>
+          <div class="event-col">
+            <div class="event-block social">
+              <div class="event-name">🥩 Formal Dinner — KOMODO Miami</div>
+              <div class="event-detail">The final group dinner. Celebrate the week. Dress: No athletic wear, shorts, baseball hats, tank tops, or flip-flops. Gather at hotel lobby at 7:15 for shared transport.</div>
+              <span class="event-tag tag-social">Formal Dinner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRIDAY -->
+    <div class="day-header" style="background: linear-gradient(135deg, #2c3e50, #3d5166)">
+      <div>
+        <div class="day-badge" style="background:rgba(255,255,255,0.2);">Fri Apr 4 — Departure Day</div>
+        <div class="day-title">See You in Miami. Go Home. ✈️</div>
+        <div class="day-question">No sessions. Check out by 11 AM. Safe travels.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time-col">By 11:00 AM</div>
+          <div class="event-col">
+            <div class="event-block break">
+              <div class="event-name">🏨 Hotel Check-Out</div>
+              <div class="event-detail">Check out by 11:00 AM. Luggage storage available at front desk if you have a later flight. Shared rides coordinated by Elizabeth for similar departures.</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time-col">All Day</div>
+          <div class="event-col">
+            <div class="event-block downtime">
+              <div class="event-name">✈️ Departures Throughout Day</div>
+              <div class="event-detail">Travel day per diem: $50. Expenses due via iSolved by April 11. Carry what you came with — and something extra you built this week.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="background: linear-gradient(135deg, rgba(34,159,161,0.06), rgba(34,159,161,0.02)); border-color: rgba(34,159,161,0.2);">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--teal-dark);margin-bottom:8px;letter-spacing:0.5px;">📅 POST-RETREAT CHECK-INS</div>
+          <div style="font-size:13px;color:var(--text-light);line-height:1.8;">
+            <strong>Week 1 (Apr 6–10):</strong> Full retreat summary distributed<br>
+            <strong>30 Days (May):</strong> Are we doing what we said?<br>
+            <strong>60 Days (June):</strong> Norms holding? Still bottlenecking?<br>
+            <strong>90 Days (July):</strong> Full retrospective
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--teal-dark);margin-bottom:8px;letter-spacing:0.5px;">💰 EXPENSE SUBMISSION</div>
+          <div style="font-size:13px;color:var(--text-light);line-height:1.8;">
+            <strong>Deadline:</strong> April 11, 2026<br>
+            Log into iSolved → Expense Reports → New Report<br>
+            Category: <strong>Team Retreat</strong><br>
+            Upload receipts or bank statement screenshots
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== MAP TAB ===================== -->
+<div id="map" class="tab-content">
+  <div class="page-container">
+
+    <div class="section-header">
+      <span class="sh-icon">📍</span><h2>Miami Retreat Locations</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="map-locations">
+
+      <div class="map-card">
+        <div class="map-card-header">
+          <div class="map-icon hotel">🏨</div>
+          <div>
+            <div class="map-location-name">SLS LUX Brickell</div>
+            <div class="map-location-tag">HOME BASE · Hotel</div>
+          </div>
+        </div>
+        <div class="map-card-body">
+          <div class="map-address">805 S Miami Ave, Miami, FL 33130<br>Check-in 3:00 PM · Check-out 11:00 AM</div>
+          <a href="https://maps.google.com/?q=SLS+LUX+Brickell+Miami" target="_blank" class="map-btn">📍 Open in Maps</a>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-card-header">
+          <div class="map-icon work">💼</div>
+          <div>
+            <div class="map-location-name">Brickell Pipelines</div>
+            <div class="map-location-tag">COWORKING SPACE · Tue–Thu</div>
+          </div>
+        </div>
+        <div class="map-card-body">
+          <div class="map-address">78 SW 7th St, Miami, FL 33130<br>~6 minute walk from hotel</div>
+          <a href="https://maps.google.com/?q=78+SW+7th+St+Miami+FL+33130" target="_blank" class="map-btn">📍 Open in Maps</a>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-card-header">
+          <div class="map-icon food">🍝</div>
+          <div>
+            <div class="map-location-name">Casa Tua Cucina</div>
+            <div class="map-location-tag">MONDAY WELCOME DINNER · 7 PM</div>
+          </div>
+        </div>
+        <div class="map-card-body">
+          <div class="map-address">Brickell City Centre, Miami<br>Welcome dinner — low-key, no work talk</div>
+          <a href="https://maps.google.com/?q=Casa+Tua+Cucina+Brickell+City+Centre+Miami" target="_blank" class="map-btn">📍 Open in Maps</a>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-card-header">
+          <div class="map-icon boat">⛵</div>
+          <div>
+            <div class="map-location-name">Boat Dock</div>
+            <div class="map-location-tag">TUESDAY BOAT NIGHT · Depart 4:30 PM</div>
+          </div>
+        </div>
+        <div class="map-card-body">
+          <div class="map-address">3218 NW North River Drive<br>Miami, Florida 33142<br><span style="color:#e84c3d;font-weight:600;">⚠️ Depart hotel lobby at 4:30 PM sharp</span></div>
+          <a href="https://www.google.com/maps?q=25.799762000000,-80.249234000000" target="_blank" class="map-btn">📍 Open in Maps</a>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-card-header">
+          <div class="map-icon food">🥩</div>
+          <div>
+            <div class="map-location-name">KOMODO Miami</div>
+            <div class="map-location-tag">THURSDAY FORMAL DINNER · 7:30 PM</div>
+          </div>
+        </div>
+        <div class="map-card-body">
+          <div class="map-address">801 Brickell Ave, Miami, FL 33131<br>Smart casual required. Gather at hotel lobby 7:15 PM.</div>
+          <a href="https://maps.google.com/?q=KOMODO+Miami+801+Brickell+Ave" target="_blank" class="map-btn">📍 Open in Maps</a>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <div class="map-card-header">
+          <div class="map-icon hotel">🏥</div>
+          <div>
+            <div class="map-location-name">Jackson Health System</div>
+            <div class="map-location-tag">NEAREST HOSPITAL</div>
+          </div>
+        </div>
+        <div class="map-card-body">
+          <div class="map-address">1611 NW 12th Ave, Miami, FL 33136<br>(305) 585-1111 · 3.7 miles / ~7 min drive</div>
+          <a href="https://maps.google.com/?q=Jackson+Health+System+1611+NW+12th+Ave+Miami" target="_blank" class="map-btn" style="background:#e84c3d;">📍 Open in Maps</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">🗺</span><h2>Retreat Hub Map</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card">
+      <iframe class="map-embed" style="height:400px;"
+        src="https://www.google.com/maps/embed/v1/search?q=SLS+LUX+Brickell+Miami&key=AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY"
+        allowfullscreen loading="lazy">
+      </iframe>
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="https://maps.google.com/?q=SLS+LUX+Brickell+Miami" target="_blank" class="map-btn outline">🏨 Hotel</a>
+        <a href="https://maps.google.com/?q=78+SW+7th+St+Miami" target="_blank" class="map-btn outline">💼 Brickell Pipelines</a>
+        <a href="https://www.google.com/maps?q=25.799762,-80.249234" target="_blank" class="map-btn outline">⛵ Boat Dock</a>
+        <a href="https://maps.google.com/?q=KOMODO+Miami" target="_blank" class="map-btn outline">🥩 KOMODO</a>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">🌴</span><h2>Free Time Ideas</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;">
+        <div style="background:var(--off-white);border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:24px;margin-bottom:6px;">🚶</div>
+          <div style="font-size:13px;font-weight:700;">Brickell Key Walk</div>
+          <div style="font-size:11px;color:var(--text-light);margin-top:3px;">Waterfront walk right nearby</div>
+        </div>
+        <div style="background:var(--off-white);border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:24px;margin-bottom:6px;">🏊</div>
+          <div style="font-size:13px;font-weight:700;">SLS LUX Pool</div>
+          <div style="font-size:11px;color:var(--text-light);margin-top:3px;">Fitness center, tennis, mini-golf</div>
+        </div>
+        <div style="background:var(--off-white);border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:24px;margin-bottom:6px;">🛍</div>
+          <div style="font-size:13px;font-weight:700;">Brickell City Centre</div>
+          <div style="font-size:11px;color:var(--text-light);margin-top:3px;">Shopping, dining, movies</div>
+        </div>
+        <div style="background:var(--off-white);border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:24px;margin-bottom:6px;">🎨</div>
+          <div style="font-size:13px;font-weight:700;">Wynwood</div>
+          <div style="font-size:11px;color:var(--text-light);margin-top:3px;">Street art district · 15 min Uber</div>
+        </div>
+        <div style="background:var(--off-white);border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:24px;margin-bottom:6px;">☀️</div>
+          <div style="font-size:13px;font-weight:700;">South Beach</div>
+          <div style="font-size:11px;color:var(--text-light);margin-top:3px;">~20 min drive</div>
+        </div>
+        <div style="background:var(--off-white);border-radius:10px;padding:14px;text-align:center;">
+          <div style="font-size:24px;margin-bottom:6px;">🚤</div>
+          <div style="font-size:13px;font-weight:700;">Bayside Marketplace</div>
+          <div style="font-size:11px;color:var(--text-light);margin-top:3px;">Waterfront dining & shops</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== PLAYBOOK TAB ===================== -->
+<div id="playbook" class="tab-content">
+  <div class="page-container">
+
+    <div class="hero" style="padding:28px 32px;">
+      <div class="hero-tag">📖 Working Method</div>
+      <h1 style="font-size:22px;">Open Space Technology</h1>
+      <p class="tagline" style="margin-bottom:0;">Instead of sitting through a pre-built agenda, you build it. The topics that matter most to this team, right now, get the airtime.</p>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">⚙️</span><h2>How It Works</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🛒</span> The Marketplace</div>
+      <div class="highlight-box">
+        <p>Each Open Space block begins with the full group in a circle. Peter frames the central question for that block. Then <strong>anyone can propose a topic</strong> — something they want to discuss, solve, or explore. You don't need to be an expert. You just need to care enough to raise it and host a conversation about it.</p>
+        <p style="margin-top:8px;">Each proposed topic gets a time slot and a space (a corner, a table, a flip chart). This creates a <strong>real-time agenda built by the team</strong>, not by leadership.</p>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">🧭</span><h2>The Four Principles</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="principle-grid">
+      <div class="principle-card">
+        <div class="principle-num">1</div>
+        <div class="principle-title">Whoever comes is the right people</div>
+        <div class="principle-desc">If three people show up to your session, those are the three who care most. That's the right conversation.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">2</div>
+        <div class="principle-title">Whatever happens is the only thing that could have</div>
+        <div class="principle-desc">Don't get attached to a specific outcome. Follow the energy where it leads.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">3</div>
+        <div class="principle-title">Whenever it starts is the right time</div>
+        <div class="principle-desc">Creativity and insight don't run on a clock. Don't force it if it's not ready.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">4</div>
+        <div class="principle-title">When it's over, it's over</div>
+        <div class="principle-desc">If a conversation wraps in 20 minutes, it's done. Don't stretch it. Note it and bring it back if needed.</div>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top:28px;">
+      <span class="sh-icon">👣</span><h2>The Law of Two Feet</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="law-card">
+      <h3>👣 The Most Important Rule</h3>
+      <p class="law-text">If you find yourself in a session where you are <strong>neither learning nor contributing</strong>, use your two feet. Go to another session. Take a walk. Sit and think. <strong>This is not rude — it's expected and respected.</strong> It means every conversation has people who genuinely want to be there.</p>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">🎯</span><h2>Retreat Objectives</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card">
+      <div class="obj-list">
+        <div class="obj-item">
+          <div class="obj-num">1</div>
+          <div class="obj-content">
+            <h4>Turn a Distributed Group Into a Real Team</h4>
+            <p>Not "bonding" — operating trust. Psychological safety to disagree, understanding how others think and decide, and normalizing productive tension. <em>Outcome: People leave knowing how to work together, not just what they're working on.</em></p>
+          </div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-num">2</div>
+          <div class="obj-content">
+            <h4>Create Ruthless Clarity on Near-Term Priorities</h4>
+            <p>The next 6 months. What matters most, what explicitly does not, and what tradeoffs we're making on purpose. <em>Outcome: Fewer Slack pings, fewer re-litigation loops, faster execution.</em></p>
+          </div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-num">3</div>
+          <div class="obj-content">
+            <h4>Make Ownership, Decision-Making & Interfaces Explicit</h4>
+            <p>Who owns what. Who supports. Who decides. When to escalate vs. decide locally. <em>Outcome: Less frustration, less duplication, more autonomy.</em></p>
+          </div>
+        </div>
+        <div class="obj-item">
+          <div class="obj-num">4</div>
+          <div class="obj-content">
+            <h4>Establish Team Norms & Shared Vocabulary</h4>
+            <p>Feedback norms, accountability norms, how conflict shows up, what "good" looks like here — not generically. <em>Outcome: Consistency without micromanagement.</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">🔥</span><h2>Pain Points Worth Raising</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card">
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:14px;">These themes have surfaced in planning conversations. You don't have to limit yourself to these — anyone can raise anything. But if you're wondering "what kind of thing should I propose?" — this is the territory:</p>
+      <div class="pain-list">
+        <div class="pain-item">
+          <span class="pain-icon">⚡</span>
+          <div><h5>Prioritization Under Pressure</h5><p>Too many "important" things, unclear tradeoffs, different interpretations of urgency.</p></div>
+        </div>
+        <div class="pain-item">
+          <span class="pain-icon">🌀</span>
+          <div><h5>Ownership Drift</h5><p>Projects becoming "everyone's problem," unclear handoffs, quiet heroics that aren't scalable.</p></div>
+        </div>
+        <div class="pain-item">
+          <span class="pain-icon">🚧</span>
+          <div><h5>Decision Bottlenecks</h5><p>When to involve Cliff/Henry vs. move forward. Where autonomy is expected vs. risky.</p></div>
+        </div>
+        <div class="pain-item">
+          <span class="pain-icon">🔍</span>
+          <div><h5>Uneven Business Understanding</h5><p>How leads flow, why constraints exist, how finance/ops/delivery connect.</p></div>
+        </div>
+        <div class="pain-item">
+          <span class="pain-icon">💬</span>
+          <div><h5>Feedback & Tension Avoidance</h5><p>Softened feedback, delayed hard conversations, frustration leaking sideways.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">👥</span><h2>Roles During Open Space</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+        <div class="info-block" style="border-left-color:var(--teal)">
+          <div class="label">Peter (Facilitator)</div>
+          <div class="value">Opens, manages marketplace, keeps time, runs harvest</div>
+          <div class="sub">Does NOT control the content — that's yours.</div>
+        </div>
+        <div class="info-block" style="border-left-color:var(--gold)">
+          <div class="label">Cliff / Henry / Eliz</div>
+          <div class="value">Participants — equal voices in Open Space</div>
+          <div class="sub">Can propose topics like anyone else. Power of OST is that leadership doesn't set the agenda.</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Everyone</div>
+          <div class="value">Both hosts and participants</div>
+          <div class="sub">You'll likely host at least one conversation and join several others across the three days.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== PREP TAB ===================== -->
+<div id="prep" class="tab-content">
+  <div class="page-container">
+
+    <div class="section-header">
+      <span class="sh-icon">📋</span><h2>Pre-Work Requirements</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="alert gold"><span class="alert-icon">⏰</span><div><strong>By March 14:</strong> Submit dietary restrictions and accessibility needs to Elizabeth via the form she'll send.</div></div>
+    <div class="alert gold"><span class="alert-icon">⏰</span><div><strong>By March 21:</strong> Playbook distributed to all attendees (planning team responsibility — minimum 10 days before).</div></div>
+    <div class="alert gold"><span class="alert-icon">⏰</span><div><strong>By March 25:</strong> Complete your pre-work (30 minutes max — see below).</div></div>
+    <div class="alert teal"><span class="alert-icon">✈️</span><div><strong>Before flying:</strong> Share your flight itinerary with Elizabeth for shared ride coordination.</div></div>
+
+    <div class="card" style="margin-top:16px;">
+      <div class="card-title"><span class="icon">📝</span> Pre-Work Assignments (≤30 minutes total)</div>
+      <div class="checklist">
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div>
+            <div class="check-text">Complete Working Styles Self-Assessment</div>
+            <div class="check-sub">Template provided by Peter (facilitator). Helps the team understand how you think and operate.</div>
+          </div>
+          <div class="deadline-badge">By Mar 25</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div>
+            <div class="check-text">Reflect on 1–2 Open Space Topics You Might Raise</div>
+            <div class="check-sub">No need to commit in advance — just start thinking. What priorities, frustrations, or ideas matter to you most right now?</div>
+          </div>
+          <div class="deadline-badge">By Mar 25</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div>
+            <div class="check-text">Submit Dietary Restrictions / Accessibility Needs</div>
+            <div class="check-sub">Via the form Elizabeth sends. Required for catering planning.</div>
+          </div>
+          <div class="deadline-badge urgent">By Mar 14</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div>
+            <div class="check-text">Read This Playbook — Especially the Open Space Section</div>
+            <div class="check-sub">No one should be caught off guard by the format. Come knowing the Four Principles and the Law of Two Feet.</div>
+          </div>
+          <div class="deadline-badge">Before Mar 31</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div>
+            <div class="check-text">Share Flight Itinerary With Elizabeth</div>
+            <div class="check-sub">So she can coordinate shared rides from MIA. Text or DM: (301) 646-7758.</div>
+          </div>
+          <div class="deadline-badge">ASAP</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div>
+            <div class="check-text">Book Hotel (if not already done)</div>
+            <div class="check-sub">SLS LUX Brickell — 805 S Miami Ave, Miami, FL 33130. Check-in March 31, check-out April 4.</div>
+          </div>
+          <div class="deadline-badge urgent">ASAP</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">🧳</span><h2>What to Pack</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">💻</span> Work Essentials</div>
+      <div class="checklist">
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Laptop + charger</div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Headphones</div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Notebook and pen <span style="font-size:11px;color:var(--text-light);">— genuinely useful during Open Space sessions</span></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Phone charger / battery pack</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">👔</span> Clothing & Dress Code</div>
+      <table>
+        <thead><tr><th>Day / Event</th><th>Dress Code</th></tr></thead>
+        <tbody>
+          <tr><td>Mon–Thu daytime (work sessions)</td><td>Comfortable, casual, work-appropriate. Layers for AC.</td></tr>
+          <tr><td>Mon Welcome Dinner (Casa Tua)</td><td>Smart casual</td></tr>
+          <tr><td>Tue Boat Night</td><td>Comfortable + <strong>light jacket/layers</strong> for after sunset</td></tr>
+          <tr><td>Wed Casual Dinner</td><td>Casual — option to change at hotel</td></tr>
+          <tr><td>Thu Rooftop Happy Hour</td><td>Smart casual</td></tr>
+          <tr><td><strong>Thu KOMODO Dinner</strong></td><td><strong style="color:#e84c3d;">No athletic wear, shorts, baseball hats, tank tops, or flip-flops</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🌴</span> Personal Items</div>
+      <div class="checklist">
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Swimwear <span style="font-size:11px;color:var(--text-light);">— SLS LUX pool is excellent</span></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Sunscreen <span style="font-size:11px;color:var(--text-light);">— it's Miami in April, stay protected</span></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Comfortable walking shoes</div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Light jacket / layers <span style="font-size:11px;color:var(--text-light);">— for boat evening and restaurant AC</span></div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Travel-size toiletries</div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Any personal medications</div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Smart casual outfit for KOMODO Thursday night</div></div>
+        <div class="check-item" onclick="toggleCheck(this)"><div class="check-box"></div><div class="check-text">Your good energy and an open mind ✨</div></div>
+      </div>
+    </div>
+
+    <div class="card" style="background: linear-gradient(135deg,rgba(34,159,161,0.06),rgba(34,159,161,0.02));border-color:rgba(34,159,161,0.2)">
+      <div class="card-title"><span class="icon">💰</span> Money & Expenses</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;">
+        <div class="info-block">
+          <div class="label">Per Diem (travel days)</div>
+          <div class="value">$50 / day</div>
+          <div class="sub">March 31 & April 4 — for meals & incidentals while in transit. Adjusted if you attend Monday dinner.</div>
+        </div>
+        <div class="info-block" style="border-left-color:var(--gold)">
+          <div class="label">Expense Deadline</div>
+          <div class="value">April 11, 2026</div>
+          <div class="sub">Log into iSolved → Expense Reports → New Report → "Team Retreat" → Upload receipts</div>
+        </div>
+        <div class="info-block">
+          <div class="label">Lost Your Receipt?</div>
+          <div class="value">Bank statement works</div>
+          <div class="sub">Screenshot of bank/card statement showing the transaction is accepted.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== SUBMIT TAB ===================== -->
+<div id="submit" class="tab-content">
+  <div class="page-container">
+
+    <div class="section-header">
+      <span class="sh-icon">💬</span><h2>Submit Open Space Topics</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="highlight-box">
+      <p>Use this form to submit topics you'd like to raise during Open Space sessions. <strong>You're not committing to anything</strong> — this just helps the leadership team understand the terrain before Day 1. The actual marketplace happens in the room.</p>
+    </div>
+
+    <div class="card">
+      <form id="topicForm" onsubmit="submitTopic(event)">
+        <div class="form-section">
+          <div class="form-row">
+            <div>
+              <label class="form-label">Your Name</label>
+              <input type="text" class="form-input" placeholder="First & last name" required>
+            </div>
+            <div>
+              <label class="form-label">Topic Category</label>
+              <select class="form-select" required>
+                <option value="">Select a category…</option>
+                <option>Prioritization & Focus</option>
+                <option>Ownership & Accountability</option>
+                <option>Decision-Making</option>
+                <option>Team Culture & Norms</option>
+                <option>Business Understanding</option>
+                <option>Feedback & Communication</option>
+                <option>Processes & Systems</option>
+                <option>Something Else</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-section">
+          <label class="form-label">Topic / Question</label>
+          <div class="form-sub">What do you want the team to discuss? Frame it as a question if possible — it makes for better conversation.</div>
+          <input type="text" class="form-input" placeholder="e.g. 'How do we decide when to escalate vs. just make the call?'" required>
+        </div>
+        <div class="form-section">
+          <label class="form-label">Why does this matter to you? (optional)</label>
+          <textarea class="form-textarea" placeholder="What's driving this? What would change if this got resolved?"></textarea>
+        </div>
+        <div class="form-section">
+          <label class="form-label">Which day feels right for this?</label>
+          <select class="form-select">
+            <option value="">No preference</option>
+            <option>Day 1 (Tuesday) — Team identity & how we operate</option>
+            <option>Day 2 (Wednesday) — Priorities & decision-making</option>
+            <option>Day 3 (Thursday) — Final unresolved items</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">💬 Submit Topic</button>
+      </form>
+      <div id="topicSuccess" class="success-message">
+        <h4>✅ Topic Submitted!</h4>
+        <p>Thanks for sharing this. The planning team will review all submissions before Day 1. Your topic will hit the marketplace on the day that makes the most sense — or you can raise it yourself in the room!</p>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">📸</span><h2>Share Your Photos</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="highlight-box">
+      <p>We want to capture all of it — the work sessions, dinners, boat night, rooftop, KOMODO — the fun, the candid moments, and all of it. <strong>Easiest way: drop photos directly into the shared Google Drive folder</strong> or text them to Elizabeth.</p>
+    </div>
+
+    <div class="card">
+      <div class="photo-upload" onclick="document.getElementById('photoInput').click()">
+        <input type="file" id="photoInput" accept="image/*" multiple style="display:none" onchange="handlePhotos(this)">
+        <div class="upload-icon">📸</div>
+        <h4>Tap to Add Photos</h4>
+        <p>JPG, PNG, HEIC — multiple files OK. Works from camera roll too.</p>
+      </div>
+      <div id="photoPreview" style="display:none;margin-top:12px;display:none;">
+        <p id="photoCount" style="font-size:13px;color:var(--teal-dark);font-weight:600;"></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">📲</span> Easy Ways to Share</div>
+      <div style="display:grid;gap:10px;margin-top:4px;">
+        <div style="background:var(--off-white);border-radius:10px;padding:14px;display:flex;align-items:center;gap:14px;">
+          <div style="font-size:28px;">📱</div>
+          <div>
+            <div style="font-size:14px;font-weight:700;">Text to Elizabeth</div>
+            <div style="font-size:13px;color:var(--text-light);">Send photos directly to <a href="sms:3016467758" style="color:var(--teal);font-weight:600;">(301) 646-7758</a> — she'll add them to the shared album</div>
+          </div>
+        </div>
+        <div style="background:var(--off-white);border-radius:10px;padding:14px;display:flex;align-items:center;gap:14px;">
+          <div style="font-size:28px;">📂</div>
+          <div>
+            <div style="font-size:14px;font-weight:700;">Google Drive Folder</div>
+            <div style="font-size:13px;color:var(--text-light);">Drop photos into the shared retreat folder — link will be distributed in the pre-retreat email</div>
+          </div>
+        </div>
+        <div style="background:var(--off-white);border-radius:10px;padding:14px;display:flex;align-items:center;gap:14px;">
+          <div style="font-size:28px;">💬</div>
+          <div>
+            <div style="font-size:14px;font-weight:700;">Team Group Chat</div>
+            <div style="font-size:13px;color:var(--text-light);">Post real-time to the retreat WhatsApp/Slack group. Candid moments are gold.</div>
+          </div>
+        </div>
+      </div>
+      <div class="alert teal" style="margin-top:14px;margin-bottom:0;">
+        <span class="alert-icon">🌟</span>
+        <div><strong>What we want to see:</strong> Work sessions in action, team dinners, the boat, rooftop moments, KOMODO, silly candid shots, the Recognition Ceremony — all of it. Every photo tells the story of this week.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== RECOGNITION TAB ===================== -->
+<div id="recognition" class="tab-content">
+  <div class="page-container">
+
+    <div class="ceremony-hero">
+      <div class="hero-tag" style="background:rgba(245,166,35,0.2);border-color:rgba(245,166,35,0.4);color:var(--gold-light);">Thursday, April 3 · 2:15 PM</div>
+      <h2>Summit Recognition Ceremony</h2>
+      <p class="ceremony-sub">A new Tiger Tracks tradition — honoring every person on this team for who they are and what they bring.</p>
+      <div class="coin-badge">🪙 25 Commemorative Coins · One for Every Attendee</div>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">✨</span><h2>About This Tradition</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card">
+      <div class="highlight-box">
+        <p>This event celebrates our <strong>unique qualities and contributions</strong>. By witnessing this tradition, others gain a deeper understanding of each person — who they are, what they stand for, what they bring to this team that no one else does.</p>
+        <p style="margin-top:8px;">As a token of our appreciation, <strong>each attendee receives a special commemorative coin</strong> — a physical reminder of this week and their place on this team.</p>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">📋</span><h2>How the Ceremony Runs</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="ceremony-steps">
+      <div class="ceremony-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Circle Up — Everyone in the Room</h4>
+          <p>After the Closing Session (Personal Commitments), the full team gathers in a circle. No screens, phones away. This is for each other.</p>
+        </div>
+      </div>
+      <div class="ceremony-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>One Person at a Time</h4>
+          <p>Each of the 25 team members is honored individually. The group shares what they appreciate most about that person — their unique quality, their specific contribution, the thing that only they bring to Tiger Tracks.</p>
+        </div>
+      </div>
+      <div class="ceremony-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>The Person Being Honored Can Respond</h4>
+          <p>One or two sentences — whatever feels right. No pressure to give a speech. Even silence is fine. The point is receiving, not performing.</p>
+        </div>
+      </div>
+      <div class="ceremony-step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>🪙 Coin Presentation</h4>
+          <p>Cliff, Henry, or Elizabeth presents the commemorative coin to the honoree. A handshake, a hug — whatever feels right for that person. The coin represents their place on this team and their contribution to this week.</p>
+        </div>
+      </div>
+      <div class="ceremony-step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h4>Repeat for All 25</h4>
+          <p>Every single person. No one is skipped. The ceremony typically runs 30–45 minutes for a group of 25 when each recognition is kept to 2–3 minutes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top:28px;">
+      <span class="sh-icon">💡</span><h2>Tips for a Great Recognition</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card">
+      <div style="display:grid;gap:8px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:10px;background:var(--off-white);border-radius:8px;">
+          <span style="font-size:16px;">🎯</span>
+          <div><strong style="font-size:13px;">Be specific, not generic.</strong> <span style="font-size:13px;color:var(--text-light);">"You're hardworking" is forgettable. "The way you stayed calm when the client called on a Friday at 4pm and turned it around by Monday" is something they'll carry.</span></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:10px;background:var(--off-white);border-radius:8px;">
+          <span style="font-size:16px;">👀</span>
+          <div><strong style="font-size:13px;">Speak to what only they do.</strong> <span style="font-size:13px;color:var(--text-light);">What quality does this person have that makes Tiger Tracks better in a way no one else could replicate?</span></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:10px;background:var(--off-white);border-radius:8px;">
+          <span style="font-size:16px;">🤝</span>
+          <div><strong style="font-size:13px;">Anyone can speak.</strong> <span style="font-size:13px;color:var(--text-light);">It doesn't have to be leadership. The most powerful recognitions often come from peers who see each other's work up close.</span></div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;padding:10px;background:var(--off-white);border-radius:8px;">
+          <span style="font-size:16px;">🧘</span>
+          <div><strong style="font-size:13px;">Let it land.</strong> <span style="font-size:13px;color:var(--text-light);">After each recognition, pause for a moment before moving to the next person. The silence is part of it.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">🪙</span><h2>The Commemorative Coin</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card" style="background:linear-gradient(135deg,#fffbf0,#fff5d6);border-color:rgba(245,166,35,0.3);">
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+        <div style="font-size:64px;text-align:center;min-width:80px;">🪙</div>
+        <div>
+          <div style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:6px;">Tiger Tracks · Spring 2026 Summit</div>
+          <div style="font-size:13px;color:var(--text-light);line-height:1.7;">A physical token of your place on this team and your contribution to this week. Each coin is identical — because every person here matters equally. Keep it somewhere visible. It's a reminder that you were part of building something real in Miami, April 2026.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">👥</span><h2>25 Team Members</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="card">
+      <p style="font-size:13px;color:var(--text-light);margin-bottom:14px;">Click on a name to mark them as honored during the ceremony. (Resets on refresh — for live tracking during the event.)</p>
+      <div class="team-grid" id="teamGrid">
+        <!-- generated by JS -->
+      </div>
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--gray-light);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+        <div style="font-size:13px;color:var(--text-light);">Honored: <strong id="honoredCount">0</strong> / 25</div>
+        <button class="btn btn-outline" onclick="resetHonored()" style="padding:7px 14px;font-size:12px;">Reset</button>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <span class="sh-icon">📝</span><h2>Pre-Submit a Recognition</h2><div class="section-divider"></div>
+    </div>
+
+    <div class="highlight-box">
+      <p>Want to make sure you say something meaningful for a specific teammate? Write it here before the retreat. The planning team will compile these and can cue you during the ceremony.</p>
+    </div>
+
+    <div class="card">
+      <form id="recogForm" onsubmit="submitRecognition(event)">
+        <div class="form-section">
+          <div class="form-row">
+            <div>
+              <label class="form-label">Your Name</label>
+              <input type="text" class="form-input" placeholder="Your name" required>
+            </div>
+            <div>
+              <label class="form-label">Who are you recognizing?</label>
+              <input type="text" class="form-input" placeholder="Team member name" required>
+            </div>
+          </div>
+        </div>
+        <div class="form-section">
+          <label class="form-label">What do you want to say?</label>
+          <div class="form-sub">Specific is powerful. What quality, contribution, or moment do you want to highlight?</div>
+          <textarea class="form-textarea" placeholder="e.g. 'What I appreciate most about [name] is the way they always...' or 'The thing only [name] brings to this team is...'" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold">🏅 Submit Recognition</button>
+      </form>
+      <div id="recogSuccess" class="success-message">
+        <h4>🏅 Recognition Submitted!</h4>
+        <p>Thank you. Elizabeth will have this ready for you during the ceremony on Thursday afternoon.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // ===== TAB SWITCHING =====
+  function showTab(id) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    const tabs = ['home','agenda','map','playbook','prep','submit','recognition'];
+    document.querySelectorAll('.nav-tab')[tabs.indexOf(id)].classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  // ===== CHECKLIST =====
+  function toggleCheck(el) {
+    el.classList.toggle('checked');
+    saveChecks();
+  }
+
+  function saveChecks() {
+    const states = Array.from(document.querySelectorAll('.check-item')).map(el => el.classList.contains('checked'));
+    localStorage.setItem('tt_retreat_checks', JSON.stringify(states));
+  }
+
+  function loadChecks() {
+    const saved = JSON.parse(localStorage.getItem('tt_retreat_checks') || '[]');
+    const items = document.querySelectorAll('.check-item');
+    saved.forEach((checked, i) => { if (items[i] && checked) items[i].classList.add('checked'); });
+  }
+
+  // ===== FORMS =====
+  function submitTopic(e) {
+    e.preventDefault();
+    document.getElementById('topicSuccess').classList.add('show');
+    e.target.reset();
+    e.target.style.display = 'none';
+  }
+
+  function submitRecognition(e) {
+    e.preventDefault();
+    document.getElementById('recogSuccess').classList.add('show');
+    e.target.reset();
+    e.target.style.display = 'none';
+  }
+
+  // ===== PHOTOS =====
+  function handlePhotos(input) {
+    const count = input.files.length;
+    if (count > 0) {
+      const preview = document.getElementById('photoPreview');
+      document.getElementById('photoCount').textContent = `✅ ${count} photo${count>1?'s':''} selected — text to Elizabeth at (301) 646-7758 or drop in the Google Drive folder.`;
+      preview.style.display = 'block';
+    }
+  }
+
+  // ===== TEAM GRID =====
+  const TEAM = [
+    'Cliff Simmons','Henry','Elizabeth Ogilvie','Karen Arguello','Owen',
+    'Alex (Partnerships)','Steven (Product)','Kersten (Marketing)',
+    'Team Member 9','Team Member 10','Team Member 11','Team Member 12',
+    'Team Member 13','Team Member 14','Team Member 15','Team Member 16',
+    'Team Member 17','Team Member 18','Team Member 19','Team Member 20',
+    'Team Member 21','Team Member 22','Team Member 23','Team Member 24','Team Member 25'
+  ];
+
+  let honoredSet = new Set();
+
+  function renderTeam() {
+    const grid = document.getElementById('teamGrid');
+    grid.innerHTML = '';
+    TEAM.forEach((name, i) => {
+      const honored = honoredSet.has(i);
+      const initials = name.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
+      const colors = ['#229FA1','#0d6b8a','#1a5276','#16a085','#2980b9','#8e44ad','#d35400'];
+      const color = colors[i % colors.length];
+      grid.innerHTML += `
+        <div class="team-slot ${honored ? 'honored' : ''}" onclick="toggleHonored(${i})">
+          <div class="avatar" style="background:${color}">${initials}</div>
+          <div class="member-name">${name}</div>
+          <div class="coin-status">${honored ? '🪙 Honored' : '—'}</div>
+        </div>`;
+    });
+    document.getElementById('honoredCount').textContent = honoredSet.size;
+  }
+
+  function toggleHonored(i) {
+    if (honoredSet.has(i)) honoredSet.delete(i); else honoredSet.add(i);
+    renderTeam();
+  }
+
+  function resetHonored() {
+    honoredSet = new Set();
+    renderTeam();
+  }
+
+  // ===== INIT =====
+  document.addEventListener('DOMContentLoaded', function() {
+    loadChecks();
+    renderTeam();
+  });
+</script>
+</body>
+</html>
