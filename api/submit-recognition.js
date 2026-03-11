@@ -1,6 +1,8 @@
 // /api/submit-recognition.js
 // Sends recognition submission to elizabeth@tigertracks.ai via Resend
 
+import { Resend } from 'resend';
+
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -41,13 +43,9 @@ export default async function handler(req, res) {
   }
 
   try {
-    const r = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ from, to: [to], subject: `[Miami Summit] Recognition: ${fromName} → ${toName}`, html }),
-    });
-    const data = await r.json();
-    if (!r.ok) return res.status(500).json({ error: data?.message || 'Send failed' });
+    const resend = new Resend(apiKey);
+    const { error } = await resend.emails.send({ from, to: [to], subject: `[Miami Summit] Recognition: ${fromName} → ${toName}`, html });
+    if (error) return res.status(500).json({ error: error.message || 'Send failed' });
     return res.status(200).json({ ok: true });
   } catch (err) {
     return res.status(500).json({ error: err.message });

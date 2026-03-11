@@ -1,4 +1,7 @@
 {
   "name": "tiger-tracks-retreat",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "resend": "^4.0.0"
+  }
 }
