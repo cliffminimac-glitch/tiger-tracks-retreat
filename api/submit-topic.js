@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.RESEND_FROM_EMAIL || 'Tiger Tracks Retreat <checkins@tigertracks.ai>';
-  const to = 'cliffminimac@gmail.com';
+  const to = 'elizabeth@tigertracks.ai';
   const submittedAt = new Date().toLocaleString('en-US', { timeZone: 'America/New_York' });
 
   const html = `
