@@ -2703,5 +2703,25 @@
   // INIT
   document.addEventListener('DOMContentLoaded', () => { loadChecks(); renderTeam(); });
 </script>
+
+<!-- BACKUP & RECOVERY -->
+<div style="border-top:1px solid rgba(255,255,255,.1);padding:0 1.5rem 2rem;background:#0f1d2e;">
+  <details>
+    <summary style="cursor:pointer;padding:.75rem 0;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.4);list-style:none;display:flex;align-items:center;gap:.5rem;user-select:none;">
+      ⚙️ Backup &amp; Recovery
+      <span style="font-size:.7rem;font-weight:400;margin-left:auto;color:rgba(255,255,255,.25);">v1.1 — 2026-03-13</span>
+    </summary>
+    <div style="display:flex;flex-wrap:wrap;gap:.6rem;padding:.5rem 0 .25rem;">
+      <button onclick="(function(){var b=new Blob([document.documentElement.outerHTML],{type:'text/html'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='tt-retreat_backup_'+new Date().toISOString().slice(0,10)+'.html';a.click();})()" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:.45rem .9rem;font-size:.78rem;font-weight:600;cursor:pointer;color:rgba(255,255,255,.7);">📦 Export Full Backup (.html)</button>
+      <button onclick="(function(){var out={_exported:new Date().toISOString(),tt_retreat_checks:localStorage.getItem('tt_retreat_checks')};var b=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='tt-retreat_data_'+new Date().toISOString().slice(0,10)+'.json';a.click();})()" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:.45rem .9rem;font-size:.78rem;font-weight:600;cursor:pointer;color:rgba(255,255,255,.7);">💾 Export Data (JSON)</button>
+      <label style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:.45rem .9rem;font-size:.78rem;font-weight:600;cursor:pointer;color:rgba(255,255,255,.7);">
+        📂 Import Data
+        <input type="file" accept=".json" style="display:none;" onchange="(function(f){if(!f)return;var r=new FileReader();r.onload=function(e){try{var d=JSON.parse(e.target.result);if(d.tt_retreat_checks)localStorage.setItem('tt_retreat_checks',d.tt_retreat_checks);alert('Restored. Refreshing...');location.reload();}catch(err){alert('Invalid backup file');}};r.readAsText(f);})(this.files[0])">
+      </label>
+    </div>
+    <p style="font-size:.7rem;color:rgba(255,255,255,.25);margin-top:.35rem;">Export Full Backup = complete standalone HTML. Export Data = prep checklist progress only.</p>
+  </details>
+</div>
+
 </body>
 </html>
